@@ -1,0 +1,22 @@
+﻿@model IEnumerable<IEnumerable<InfastructureLib.Base.Page>>
+
+@section NavStyle{
+    <style>
+    @{int i = 0;}
+    @foreach(var row in Model){
+        i++;
+        <text> #navRow_@i .navLink{ width: @((double) (99.8-row.Count()*0.4)/row.Count())%; } </text>
+    }
+    </style>
+}
+
+@{int j = 0;}
+@foreach (var row in Model) { 
+    j++;
+    <nav id="navRow_@j" class="navRow flexContainer">
+        @foreach (var link in row) { 
+            <a class="navLink flexComponent linkAnimate@(link.inFocus? " inFocus" : "")" 
+               draggable="true" href="@Url.Content(link.Url)" title="@link.Title">@link.Name</a>
+        }
+    </nav>
+}

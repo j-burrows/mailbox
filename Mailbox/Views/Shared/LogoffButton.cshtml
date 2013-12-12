@@ -1,0 +1,8 @@
+﻿@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, 
+    new { 
+        @id = "logoutForm",
+        @class = "LogoutButton"
+    })) {
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Log Off"/>
+}

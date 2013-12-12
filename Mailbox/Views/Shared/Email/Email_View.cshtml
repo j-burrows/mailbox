@@ -1,0 +1,12 @@
+﻿@model MailboxLib.Business.BEmail
+
+<a id="EmailView_@Model.Email_ID" class="EmailView" href="@Url.Action("Create", new { returnView = ViewData["viewName"] })" title="Reply to @Model.Sender">
+    <span class="detail">Sender: @Model.Sender</span>@Html.Partial("Email/Email_Delete", Model)
+    <br />
+    <span class="detail">Recipient: @Model.Recipient</span>
+    <br />
+    <span class="detail">Title: @Model.Title</span>
+    <br />
+    <span class="detail">@Model.Body</span>
+    <br />
+</a>

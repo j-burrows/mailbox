@@ -1,0 +1,17 @@
+﻿@model MailboxLib.Business.BEmail
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Email_Delete", "Home", FormMethod.Post, 
+    new {
+        @id = "EmailDelete_" + Model.Email_ID,
+        @class = "EmailDelete PartialUpdateForm"
+    })) { 
+    <input type="hidden" value="@ViewData["viewName"]" name="returnView" />
+    @Model.Email_ID_Rules.Delete.HtmlInput(Model.Email_ID, "hidden")
+    @Model.Sender_Rules.Delete.HtmlInput(Model.Sender, "hidden")
+    
+    <input type="submit" value="" title="Delete @Model.Title"/>
+}

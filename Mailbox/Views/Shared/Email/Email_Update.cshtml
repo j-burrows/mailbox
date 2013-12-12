@@ -1,0 +1,19 @@
+﻿@model MailboxLib.Business.BEmail
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Email_Update", "Home", FormMethod.Post, 
+    new {
+        @id = "EmailUpdate_" + Model.Email_ID,
+        @class = "EmailUpdate PartialUpdateForm"
+    })) { 
+    @Model.Email_ID_Rules.Update.HtmlInput(Model.Email_ID)
+    @Model.Recipient_Rules.Update.HtmlInput(Model.Recipient)
+    @Model.Sender_Rules.Update.HtmlInput(Model.Sender)
+    @Model.Title_Rules.Update.HtmlInput(Model.Title)
+    @Model.Body_Rules.Update.HtmlInput(Model.Body)
+    
+    <input type="submit" value="Create Email" />
+}

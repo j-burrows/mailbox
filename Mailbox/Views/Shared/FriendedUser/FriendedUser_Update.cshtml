@@ -1,0 +1,17 @@
+﻿@model UserProfileLib.Business.BFriended_User
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("FriendedUser_Update", "Home", FormMethod.Post, 
+    new {
+        @id = "FriendedUserUpdate_" + Model.Friended_User_ID,
+        @class = "FriendedUserUpdate PartialUpdateForm"
+    })) { 
+    @Model.Friended_User_ID_Rules.Update.HtmlInput(Model.Friended_User_ID)
+    @Model.username_Rules.Update.HtmlInput(Model.username)
+    @Model.Author_Name_Rules.Update.HtmlInput(Model.Author_Name)
+    
+    <input type="submit" value="Update Friended User" />
+}

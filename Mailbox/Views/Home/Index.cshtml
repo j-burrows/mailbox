@@ -1,0 +1,38 @@
+﻿@model Mailbox.Models.HomeIndexViewModel
+
+@section LogoffButton{
+    @Html.Partial("LogoffButton")
+}
+
+@section NavStyle{
+    <style>
+    @{int i = 0;}
+    @foreach(var row in Model.navSection){
+        i++;
+        <text> #navRow_@i .navLink{ width: @((double) (99.8-row.Count()*0.4)/row.Count())%; } </text>
+    }
+    </style>
+}
+
+@section NavSection{
+    @Html.Partial("NavSection", Model.navSection)
+}
+
+<section id="mainContent" class="flexContainer">
+    <a id="CreateOption" class="MailOption flexComponent" href="@Url.Action("Create")">
+        <div class="ShadowBox"></div>
+        Create
+    </a>
+    <a id="InboxOption" class="MailOption flexComponent" href="@Url.Action("Inbox")">
+        <div class="ShadowBox"></div>
+        Inbox
+    </a>
+    <a id="SentOption" class="MailOption flexComponent" href="@Url.Action("Sent")">
+        <div class="ShadowBox"></div>
+        Sent
+    </a>
+    <a id="FriendOption" class="MailOption flexComponent" href="@Url.Action("Friends")">
+        <div class="ShadowBox flexComponent"></div>
+        Friendsies :3
+    </a>
+</section>

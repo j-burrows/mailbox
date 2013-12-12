@@ -1,0 +1,17 @@
+﻿@model UserProfileLib.Business.BFriended_User
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("FriendedUser_Create", "Home", FormMethod.Post, 
+    new {
+        @id = "FriendedUserCreate_" + Model.Friended_User_ID,
+        @class = "FriendedUserCreate PartialUpdateForm"
+    })) { 
+    @Model.Friended_User_ID_Rules.Create.HtmlInput(Model.Friended_User_ID)
+    @Model.username_Rules.Create.HtmlInput(Model.username)
+    @Model.Author_Name_Rules.Create.HtmlInput(Model.Author_Name)
+
+    <input type="submit" value="" title="Add Friend" />
+}

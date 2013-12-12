@@ -1,0 +1,18 @@
+﻿@model UserProfileLib.Business.BBlocked_User
+@using Mailbox.Helpers
+@using Repository.Business.Protocols
+
+@{Model.Format();}
+
+@using (Html.BeginForm("BlockedUser_Create", "Home", FormMethod.Post, 
+    new {
+        @id = "BlockedUserCreate_" + Model.Blocked_User_ID,
+        @class = "BlockedUserCreate PartialUpdateForm"
+    })) { 
+    <span>Add Blocked User:</span>
+    @Model.Blocked_User_ID_Rules.Create.HtmlInput(Model.Blocked_User_ID)
+    @Model.username_Rules.Create.HtmlInput(Model.username)
+    @Model.Author_Name_Rules.Create.HtmlInput(Model.Author_Name)
+
+    <input type="submit" value="" title="Add Blocked User"/>
+}

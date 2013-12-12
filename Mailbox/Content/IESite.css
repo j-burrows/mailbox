@@ -1,0 +1,187 @@
+﻿html, body{
+	margin: 0;
+	padding: 0;
+	background-color: #D1D7F0;
+	font-family: Arial;
+	font-weight: lighter;
+}
+
+a {
+    text-decoration: none;
+    text-decoration: inherit;
+}
+
+p{
+	padding: 0;
+	margin: 0;
+}
+	
+#mainSection{
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	width: 90%;
+	left: 50%;
+	position: relative;
+	margin-left: -45%;
+	font-size: 1.25em;
+	position:relative;
+	float: left;
+}
+	
+#banner{
+	color: white;
+	background-color: #222;
+	padding: 0.2% 0 0.1% 0;
+	float: left;
+	width: 100%;
+}
+	
+#Logo {
+    height: 1.6em;
+    float: left;
+    padding: 0 0.4em 0 0.4%;
+    margin: 0;
+}
+	
+#bannerHeader{
+    text-transform:uppercase;
+	padding: 0;
+	margin: 0;
+	font-size: 1.4em;
+    line-height: 1.4em;
+	float: left;
+}
+	
+.navRow{
+	margin-bottom: 0.3%;
+	width: 100%;
+	float: left;
+}
+	
+.navLink{
+	background-color: #444;
+	line-height: 2em;
+	text-align: center;
+	font-size: 0.85em;
+	float: left;
+	cursor: pointer;
+	margin: 0 0.2% 0 0.2%;
+	word-break: break-all;
+}
+	
+	.navLink : hover, .inFocus{
+		background-color: white;
+	}
+	
+@media screen and (min-width: 1000px){
+	.navLink{
+		line-height: 1.4em;
+		font-size: 1em;
+	}
+}
+	
+	.navLink:hover, .inFocus{
+		background-color: #666666;
+	}
+
+    .navLink:active {
+		background-color: #999999;
+    }
+	
+#mainContent{
+	font-size: 0.9em;
+	padding: 1%;
+	text-align: justify;
+}
+	
+.article{
+	float: left;
+}
+	
+.articleContent{
+	position:relative;
+	color: hsl(0,0%,30%);
+	font-size: 1em;
+}
+	
+@media screen and (min-width: 1000px){
+	.articleContent{
+		font-size: 0.9em;
+	}
+}
+.articleImage{
+	margin: 0 0.8% 0 0;
+	width: 40%;
+	float: left;
+	position:relative;
+}
+	
+.articleHeader{
+	text-transform: uppercase;
+	font-size: 1.4em;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+#footer{
+	clear: both;
+	color: #9932CC;
+	background-color: #333;
+	padding: 1% 0 0.1% 0;
+	font-size: 1em;
+	float: left;
+	width: 100%;
+}
+#footerHeader{
+	font-size: 1em;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+	
+#relatedLinks{	
+	float: left;
+	width: 100%;
+}
+	
+.relatedLink{
+	float: left;
+	color: #663399;
+	text-align: center;
+	cursor: pointer;
+	width:25%;
+	font-size: 0.75em;
+}
+	.relatedLink:hover{
+		color: #9933CC;
+	}
+
+#copyrightStamp{
+	text-align: center;
+	float: left;
+	width: 100%;
+    color: white;
+}
+
+.LogoutButton > input {
+	background: #333333;
+    float: right;
+    margin: 0 0.2% 0 0;
+    cursor: pointer;
+    color: #9933CC;
+    font-size: 1em;
+    position: relative;
+    border: none;
+    padding: 0.2em;
+}
+
+    .LogoutButton > input:hover {
+		background-color: #666666;
+        color: #9966CC;
+    }
+
+    .LogoutButton > input:active {
+		background-color: #999999;
+        color: #CC99FF;
+    }

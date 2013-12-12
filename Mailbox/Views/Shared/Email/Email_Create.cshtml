@@ -1,0 +1,21 @@
+﻿@model MailboxLib.Business.BEmail
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("Email_Create", "Home", FormMethod.Post, 
+    new {
+        @id = "EmailCreate_" + Model.Email_ID,
+        @class = "EmailCreate PartialUpdateForm"
+    })) { 
+    <input type="hidden" value="@ViewData["returnView"]" name="returnView"/>
+    
+    @Model.Email_ID_Rules.Create.HtmlInput(Model.Email_ID)
+    @Model.Recipient_Rules.Create.HtmlInput(Model.Recipient)
+    @Model.Sender_Rules.Create.HtmlInput(Model.Sender)
+    @Model.Title_Rules.Create.HtmlInput(Model.Title)
+    @Model.Body_Rules.Create.HtmlInput(Model.Body, "textarea")
+
+    <input type="submit" value="Create Email" />
+}

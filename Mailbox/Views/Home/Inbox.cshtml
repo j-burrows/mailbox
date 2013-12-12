@@ -1,0 +1,45 @@
+﻿@model Mailbox.Models.HomeIndexViewModel
+
+@{
+  ViewData["viewName"] = "Inbox";
+}
+
+
+@section LogoffButton{
+    @Html.Partial("LogoffButton")
+}
+
+@section NavStyle{
+    <style>
+    @{int i = 0;}
+    @foreach(var row in Model.navSection){
+        i++;
+        <text> #navRow_@i .navLink{ width: @((double) (99.8-row.Count()*0.4)/row.Count())%; } </text>
+    }
+    </style>
+}
+
+@section NavSection{
+    @Html.Partial("NavSection", Model.navSection)
+}
+<section id="mainContent">
+    <h2>Inbox:</h2>
+    @if(Model.Inbox.Count() == 0){
+        <br />
+        <text>No new messages.</text>
+    }
+    @foreach(var email in Model.Inbox.Reverse()){
+        @Html.Partial("Email/Email_View", email)
+    }
+
+    <br />
+    <br />
+    <h2>Blocked Inbox:</h2>
+    @if(Model.BlockedInbox.Count() == 0){
+        <br />
+        <text>No blocked messages.</text>
+    }
+    @foreach(var email in Model.BlockedInbox.Reverse()){
+        @Html.Partial("Email/Email_View", email)
+    }
+</section>

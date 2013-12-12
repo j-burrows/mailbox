@@ -1,0 +1,16 @@
+﻿@model UserProfileLib.Business.BBlocked_User
+@using Repository.Business.Protocols
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("BlockedUser_Delete", "Home", FormMethod.Post, 
+    new {
+        @id = "BlockedUserDelete_" + Model.Blocked_User_ID,
+        @class = "BlockedUserDelete PartialUpdateForm"
+    })) { 
+    @Model.Blocked_User_ID_Rules.Delete.HtmlInput(Model.Blocked_User_ID)
+    @Model.username_Rules.Delete.HtmlInput(Model.username)
+
+    <input type="submit" value="" title="Unblock @Model.Author_Name"/>
+}

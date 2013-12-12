@@ -1,0 +1,52 @@
+﻿@model Mailbox.Models.HomeIndexViewModel
+@using MailboxLib.Business
+
+@section LogoffButton{
+    @Html.Partial("LogoffButton")
+}
+
+@section NavStyle{
+    <style>
+    @{int i = 0;}
+    @foreach(var row in Model.navSection){
+        i++;
+        <text> #navRow_@i .navLink{ width: @((double) (99.8-row.Count()*0.4)/row.Count())%; } </text>
+    }
+    </style>
+}
+
+@section NavSection{
+    @Html.Partial("NavSection", Model.navSection)
+}
+
+<section id="mainContent">
+    <h2>Friended Users:</h2>
+    @if(Model.friendedUsers.Count() == 0){
+        <br />
+        <text>You have no friends.</text>
+    }
+    @foreach (var friend in Model.friendedUsers) { 
+        <article class="ContactEntry">
+            @Html.Partial("FriendedUser/FriendedUser_View", friend)
+            @Html.Partial("FriendedUser/FriendedUser_Delete", friend)
+        </article>
+        <br />
+    }
+    @Html.Partial("FriendedUser/FriendedUser_Create", new BFriended_User{username = User.Identity.Name})
+
+    <br />
+    <br />
+    <h2>Blocked Users:</h2>
+    @if(Model.blockedUsers.Count() == 0){
+        <br />
+        <text>You have no blocked users.</text>
+    }
+    @foreach (var blocked in Model.blockedUsers) { 
+        <article class="ContactEntry">
+            @Html.Partial("BlockedUser/BlockedUser_View", blocked)
+            @Html.Partial("BlockedUser/BlockedUser_Delete", blocked)
+        </article>
+        <br />
+    }
+    @Html.Partial("BlockedUser/BlockedUser_Create", new BBlocked_User{username = User.Identity.Name})
+</section>

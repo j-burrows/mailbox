@@ -1,0 +1,20 @@
+﻿@model MailboxLib.Business.BFriended_User
+@using Mailbox.Helpers
+
+@{Model.Format();}
+
+@using (Html.BeginForm("FriendedUser_Delete", "Home", FormMethod.Post, 
+    new {
+        @id = "FriendedUserDelete_" + Model.Friended_User_ID,
+        @class = "FriendedUserDelete PartialUpdateForm"
+    })) { 
+    @Model.ValidationErrors["Data"].ValidationSection()
+    
+    <input type="hidden" value="@Model.Friended_User_ID" name="Friended_User_ID"/>
+    @Model.ValidationErrors["Friended_User_ID"].ValidationSection()
+    
+    <input type="hidden" name="username" value="@Model.username" placeholder="username"/>
+    @Model.ValidationErrors["username"].ValidationSection()
+
+    <input type="submit" value="" title="Unfriend @Model.Author_Name"/>
+}
